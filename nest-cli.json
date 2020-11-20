@@ -1,0 +1,41 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/mobile-api/src",
+  "monorepo": true,
+  "root": "apps/mobile-api",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/mobile-api/tsconfig.app.json",
+    "assets": ["**/*.env", "**/*.pug", "**/*.png"]
+  },
+  "projects": {
+    "mobile-api": {
+      "type": "application",
+      "root": "apps/mobile-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/mobile-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/mobile-api/tsconfig.app.json",
+        "assets": ["**/*.pug", "**/*.css", "**/*.js", "**/*.ico", "**/*.png"]
+      }
+    },
+    "admin-api": {
+      "type": "application",
+      "root": "apps/admin-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/admin-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/admin-api/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
+  }
+}
